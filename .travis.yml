@@ -1,0 +1,42 @@
+language: python
+python:
+  - 3.6
+branches:
+  only:
+    - master
+    - develop
+notifications:
+  email: false
+
+
+
+dist: trusty
+sudo: required
+
+env: 
+  - DOCKER_COMPOSE_VERSION=1.21.2
+    
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+install:
+  - docker-compose -v
+  - docker-compose build
+  - docker-compose up -d
+  - docker-compose run app init 
+
+# Run test
+script:
+  - docker-compose run --use-aliases --rm app test
+
+# Calculate coverage
+#after_success:
+#  - coveralls
+
+cache:
+  pip: true
+  apt: true
+  directories:
+    - $HOME/miniconda
