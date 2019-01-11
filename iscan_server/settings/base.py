@@ -74,8 +74,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
     'iscan',
-    # 'iscan.annotator',
-    # 'iscan.intonation',
+    'iscan.intonation',
     'sekizai',
     'rest_auth',
     'allauth',
@@ -155,6 +154,7 @@ STATICFILES_DIRS = [
     # os.path.join(ANGULAR_APP_DIR),
     #os.path.join(PROJECT_DIR, 'static'),
     ('node_modules', '/site/proj/node_modules'),
+    ('intonation', os.path.join(PROJECT_DIR, 'intonation/static/intonation/'))
 ]
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
@@ -184,7 +184,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(PROJECT_DIR, 'templates')],
-        #'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
