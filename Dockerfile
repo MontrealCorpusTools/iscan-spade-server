@@ -93,6 +93,7 @@ WORKDIR proj/
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs npm && \
     npm install -y
 
+ARG BUILD_ENV=prod
 
 # Put bin on path
 ENV PATH=$PATH:/bin
@@ -101,6 +102,8 @@ ENV PATH=$PATH:/bin
 ENV PATH=/site/env/bin:$PATH
 
 EXPOSE 8080
+
+RUN echo "$BUILD_ENV" > /build_env
 
 # Set a custom entrypoint to let us provide custom initialization behavior
 ENTRYPOINT ["./docker-utils/start.sh"]
