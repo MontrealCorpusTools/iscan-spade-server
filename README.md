@@ -25,6 +25,16 @@ Then, run:
 
 This will launch the containers.
 
+If you are intending to develop or make changes to ISCAN itself a few things must be done differently.
+
+First, you must also clone the ISCAN repository in the same directory that you cloned your iscan-server directory.
+
+Then, while building, you must provide a build-env arg like so:
+
+``docker-compose build --build-arg BUILD_ENV="dev"``
+
+This will allow you to make changes in the ISCAN repo directory, and have them reflected in the docker installation.
+
 ### Initial migrations
 
 The first time you use iscan-server, you will need to make database migrations. In another terminal, while the containers are up, run:

@@ -2,6 +2,14 @@
 
 set -eox
 
+#This installs an editable version of ISCAN the first time the script is ran
+if [ "$(cat /build_env)" = "test" ] || [ "$(cat /build_env)" = "dev" ]; then
+	if [ ! -f /editablepipinstalled ]; then
+		${SITE_DIR}/env/bin/pip install --editable ${SITE_DIR}/proj/ISCAN
+		touch /editablepipinstalled
+	fi
+fi
+
 if [ -z "$1" ]; then
 	${SITE_DIR}/env/bin/python ${SITE_DIR}/proj/manage.py runserver --verbosity 3 0.0.0.0:8080
 else
