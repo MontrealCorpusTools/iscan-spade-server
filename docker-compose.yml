@@ -48,7 +48,8 @@ services:
       - "8080"
     ports:
       - 8080:8080
-      - 7400:7400
+      - 7400:7800
+      - 8400:8800
     environment:
       - DATABASE_URL=postgres://postgres@db/postgres
       - CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672//
