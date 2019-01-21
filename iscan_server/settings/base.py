@@ -296,9 +296,9 @@ HTML_MINIFY = True
 
 IS_TESTING = 'test' in sys.argv
 
-SOURCE_DATA_DIRECTORY = os.path.join('/site/proj/test_data', 'source')
+SOURCE_DATA_DIRECTORY = '/site/proj/polyglot_source'
 
-POLYGLOT_DATA_DIRECTORY = os.path.join('/site/proj/test_data', 'data')
+POLYGLOT_DATA_DIRECTORY = '/site/proj/polyglot_data'
 
 SPADE_CONFIG = {}
 
