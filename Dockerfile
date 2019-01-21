@@ -69,7 +69,7 @@ COPY docker-utils/ssl/ ssl/
 # pre-install requirements; doing this sooner prevents unnecessary layer-building
 COPY requirements.txt requirements.txt
 RUN env/bin/pip install pip --upgrade
-RUN env/bin/pip install -r requirements.txt
+RUN env/bin/pip install -r requirements.txt -U
 
 
 # Get django
