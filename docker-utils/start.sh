@@ -18,6 +18,8 @@ else
 	    ${SITE_DIR}/env/bin/python ${SITE_DIR}/proj/manage.py makemigrations
 	    ${SITE_DIR}/env/bin/python ${SITE_DIR}/proj/manage.py migrate
 	    #${SITE_DIR}/env/bin/python ${SITE_DIR}/proj/manage.py collectstatic --no-input --clear
+	elif [ "$1" == 'update' ]; then
+	    ${SITE_DIR}/env/bin/pip install -r ${SITE_DIR}/requirements.txt -U
 	elif [ "$1" == 'manage' ]; then
 	    shift
 	    echo "Manage.py $@"
