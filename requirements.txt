@@ -33,4 +33,4 @@ dj-database-url==0.4.2
 celery==4.1.1
 django-rest-auth
 django-allauth
--e git://github.com/MontrealCorpusTools/ISCAN.git#egg=ISCAN
+-e git://github.com/MontrealCorpusTools/ISCAN.git#egg=djangoiscan
