@@ -22,9 +22,9 @@ RUN add-apt-repository -y ppa:webupd8team/java && \
     apt-get install -y oracle-java8-installer
 
 # Get barren Praat and add it to the path
-RUN wget http://www.fon.hum.uva.nl/praat/praat6046_linux64barren.tar.gz && \
- gunzip praat6046_linux64barren.tar.gz && \
- tar xvf praat6046_linux64barren.tar && \
+RUN wget http://www.fon.hum.uva.nl/praat/praat6049_linux64barren.tar.gz && \
+ gunzip praat6049_linux64barren.tar.gz && \
+ tar xvf praat6049_linux64barren.tar && \
  mv praat_barren praat && \
     export PATH=$PATH:/$PWD
 
