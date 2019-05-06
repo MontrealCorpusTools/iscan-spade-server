@@ -13,7 +13,7 @@ ISCAN server uses [Docker](https://www.docker.com/what-docker). This containeriz
 
 First, clone the iscan-server repository to your machine:
 
-``git clone https://github.com/MontrealCorpusTools/iscan-server.git``
+``git clone https://github.com/MontrealCorpusTools/iscan-spade-server.git``
 
 Included are a `Dockerfile` and a `docker-compose.yml`. In order to build a Docker image from these files, navigate to the root of the repository and run:
 
@@ -25,11 +25,17 @@ Then, run:
 
 This will launch the containers.
 
+### Development Installation
+
 If you are intending to develop or make changes to ISCAN itself a few things must be done differently.
 
 First, you must also clone the ISCAN repository in the same directory that you cloned your iscan-server directory.
 
-Then, while building, you must provide a build-env arg like so:
+``git clone https://github.com/MontrealCorpusTools/ISCAN.git``
+
+So, you will have a directory containing the two repos, `ISCAN` and `iscan-spade-server`. Then, just `cd` into the `iscan-spade-server` directory.
+
+To build the image, run the following command instead of just `docker-compose build`.
 
 ``docker-compose build --build-arg BUILD_ENV="dev"``
 
