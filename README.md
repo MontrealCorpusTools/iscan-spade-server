@@ -35,7 +35,7 @@ First, you must also clone the ISCAN repository in the same directory that you c
 
 So, you will have a directory containing the two repos, `ISCAN` and `iscan-spade-server`. Then, just `cd` into the `iscan-spade-server` directory.
 
-To build the image, run the following command instead of just `docker-compose build`.
+To build the image with development support, run the following command. 
 
 ``docker-compose build --build-arg BUILD_ENV="dev"``
 
