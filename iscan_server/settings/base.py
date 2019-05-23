@@ -54,7 +54,7 @@ DATABASES = {'default': {
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 #ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", '*')
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver', '0.0.0.0', '132.206.84.241']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver', '0.0.0.0', '132.206.84.241', 'app']
 
 INSTALLED_APPS = (
     'corsheaders',
