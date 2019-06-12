@@ -20,9 +20,9 @@ RUN apt-get update && apt-get install -y \
     sox
 
 # Get barren Praat and add it to the path
-RUN wget http://www.fon.hum.uva.nl/praat/praat6049_linux64barren.tar.gz && \
- gunzip praat6049_linux64barren.tar.gz && \
- tar xvf praat6049_linux64barren.tar && \
+RUN wget http://www.fon.hum.uva.nl/praat/praat6054_linux64barren.tar.gz && \
+ gunzip praat6054_linux64barren.tar.gz && \
+ tar xvf praat6054_linux64barren.tar && \
  mv praat_barren praat && \
     export PATH=$PATH:/$PWD
 
