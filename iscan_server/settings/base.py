@@ -301,6 +301,8 @@ SOURCE_DATA_DIRECTORY = '/site/proj/polyglot_source'
 
 POLYGLOT_DATA_DIRECTORY = '/site/proj/polyglot_data'
 
+SPADE_SCRIPT_DIRECTORY = '/site/proj/SPADE'
+
 SPADE_CONFIG = {}
 
 if not IS_TESTING:
