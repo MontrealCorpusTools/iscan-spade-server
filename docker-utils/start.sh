@@ -2,12 +2,9 @@
 
 set -eox
 
-#This installs an editable version of ISCAN the first time the script is ran
 if [ "$(cat /build_env)" = "test" ] || [ "$(cat /build_env)" = "dev" ]; then
-	if [ ! -f /editablepipinstalled ]; then
-		${SITE_DIR}/env/bin/pip install --editable ${SITE_DIR}/proj/ISCAN
-		touch /editablepipinstalled
-	fi
+    ${SITE_DIR}/env/bin/pip install --editable ${SITE_DIR}/proj/ISCAN
+    ${SITE_DIR}/env/bin/pip install --editable ${SITE_DIR}/proj/PolyglotDB
 fi
 
 if [ -z "$1" ]; then
@@ -18,8 +15,6 @@ else
 	    ${SITE_DIR}/env/bin/python ${SITE_DIR}/proj/manage.py makemigrations
 	    ${SITE_DIR}/env/bin/python ${SITE_DIR}/proj/manage.py migrate
 	    #${SITE_DIR}/env/bin/python ${SITE_DIR}/proj/manage.py collectstatic --no-input --clear
-	elif [ "$1" == 'update' ]; then
-	    ${SITE_DIR}/env/bin/pip install -r ${SITE_DIR}/requirements.txt -U
 	elif [ "$1" == 'manage' ]; then
 	    shift
 	    echo "Manage.py $@"
