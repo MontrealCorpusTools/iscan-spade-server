@@ -92,6 +92,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs npm && \
     npm install -y
 
 ARG BUILD_ENV=prod
+ARG UPGRADE=no
 
 # Put bin on path
 ENV PATH=$PATH:/bin
@@ -105,3 +106,4 @@ RUN echo "$BUILD_ENV" > /build_env
 
 # Set a custom entrypoint to let us provide custom initialization behavior
 ENTRYPOINT ["./docker-utils/start.sh"]
+RUN if [ "$UPGRADE" = "y" ]; then ${SITE_DIR}/env/bin/pip install -r requirements.txt -U ; fi
