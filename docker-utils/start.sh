@@ -20,9 +20,11 @@ else
 	    echo "Manage.py $@"
 	    ${SITE_DIR}/env/bin/python ${SITE_DIR}/proj/manage.py $@
 	elif [ "$1" == 'test' ]; then
-	    ${SITE_DIR}/env/bin/python manage.py test ISCAN.tests.test_web
+        cd /site/proj/
+	    ${SITE_DIR}/env/bin/python manage.py test ISCAN.tests
 	elif [ "$1" == 'test_cov' ]; then
-	    coverage run --source='.' manage.py test ISCAN.tests.test_web
+        cd /site/proj/
+	    coverage run --source='.' manage.py test ISCAN.tests
 	else
 	    exec "$@"
 	fi
