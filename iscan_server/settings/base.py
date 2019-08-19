@@ -54,7 +54,7 @@ DATABASES = {'default': {
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 #ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", '*')
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver', '0.0.0.0', '132.206.84.241', 'app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver', '0.0.0.0', '132.206.84.241', 'app', '192.168.1.107']
 
 INSTALLED_APPS = (
     'corsheaders',
@@ -316,6 +316,8 @@ POLYGLOT_TEMP_DIR = os.path.join(POLYGLOT_DATA_DIRECTORY, 'downloads')
 POLYGLOT_QUERY_DIRECTORY = os.path.join(POLYGLOT_DATA_DIRECTORY, 'queries')
 
 POLYGLOT_ENRICHMENT_DIRECTORY = os.path.join(POLYGLOT_DATA_DIRECTORY, 'enrichments')
+
+POLYGLOT_SCRIPT_DIRECTORY = os.path.join(POLYGLOT_DATA_DIRECTORY, 'script_logs')
 
 NEO4J_VERSION = '3.5.3'
 
