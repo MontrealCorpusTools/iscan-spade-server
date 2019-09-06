@@ -44,6 +44,8 @@ services:
       - ./docker-utils:/site/docker-utils
       - ../PolyglotDB:/site/proj/PolyglotDB
       - ../ISCAN:/site/proj/ISCAN
+      - ../SPADE:/site/proj/SPADE
+      - ../unisyn_spade:/site/proj/unisyn_spade
     expose:
       - "8080"
     ports:
@@ -85,6 +87,8 @@ services:
       - ./docker-utils:/site/docker-utils
       - ../PolyglotDB:/site/proj/PolyglotDB
       - ../ISCAN:/site/proj/ISCAN
+      - ../SPADE:/site/proj/SPADE
+      - ../unisyn_spade:/site/proj/unisyn_spade
     environment:
       - DATABASE_URL=postgres://postgres@db/postgres
       - CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672//

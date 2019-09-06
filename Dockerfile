@@ -66,6 +66,7 @@ COPY docker-utils/ssl/ ssl/
 
 # pre-install requirements; doing this sooner prevents unnecessary layer-building
 COPY requirements.txt requirements.txt
+COPY requirements_testing.txt requirements_testing.txt
 RUN env/bin/pip install pip --upgrade
 RUN env/bin/pip install -r requirements.txt -U
 
@@ -92,7 +93,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs npm && \
     npm install -y
 
 ARG BUILD_ENV=prod
+ARG UPGRADE=no
 
+RUN if [ "$BUILD_ENV" = "test" ] || [ "$BUILD_ENV" = "dev" ]; then ${SITE_DIR}/env/bin/pip install -r requirements_testing.txt -U ; fi
 # Put bin on path
 ENV PATH=$PATH:/bin
 
@@ -105,3 +108,4 @@ RUN echo "$BUILD_ENV" > /build_env
 
 # Set a custom entrypoint to let us provide custom initialization behavior
 ENTRYPOINT ["./docker-utils/start.sh"]
+RUN if [ "$UPGRADE" = "y" ]; then ${SITE_DIR}/env/bin/pip install -r requirements.txt -U ; fi
