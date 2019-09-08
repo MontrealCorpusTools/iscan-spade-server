@@ -155,7 +155,6 @@ STATICFILES_DIRS = [
     # os.path.join(ANGULAR_APP_DIR),
     #os.path.join(PROJECT_DIR, 'static'),
     ('node_modules', '/site/proj/node_modules'),
-    ('intonation', os.path.join(PROJECT_DIR, 'intonation/static/intonation/'))
 ]
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
