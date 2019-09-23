@@ -58,6 +58,16 @@ This will begin a prompt that asks you for a username, email address, and passwo
 
 Then, you should be able to log in with your credentials. You should only need to perform this step once; from now on, whenever you start the server, you should be able to log in with your defined username and password. When finished, press :code:`Ctrl+C` to end the current server run.
 
+
+### Settings
+
+Certain aspects of the server require changing settings.
+Most of the settings are set in `/iscan_server/settings/base.py` but it is unlikely you will need to change these.
+What you will have to do, however, is edit `/iscan_server/settings/local_settings.py`.
+There is a template available there by default.
+
+In order to query the server from remote connections, you must change the `ALLOWED_HOSTS` parameter in the `iscan_server/settings/local_settings.py` to include the hostname of your server. 
+
 ## Use and workflow
 
 ### Starting and stopping the server

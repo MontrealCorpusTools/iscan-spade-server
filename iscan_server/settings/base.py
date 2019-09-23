@@ -51,10 +51,6 @@ DATABASES = {'default': {
         'HOST': 'db',
         'PORT': '5432'}}
 
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-#ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", '*')
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver', '0.0.0.0', '132.206.84.241', 'app', '192.168.1.107']
 
 INSTALLED_APPS = (
     'corsheaders',
@@ -177,7 +173,8 @@ CORS_ALLOW_CREDENTIALS = True
 #CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8080',
-    'http://127.0.0.1:8080'
+    'http://127.0.0.1:8080',
+    'http://app:8080'
 )
 
 TEMPLATES = [
@@ -306,11 +303,18 @@ SPADE_SCRIPT_DIRECTORY = '/site/proj/SPADE'
 
 SPADE_CONFIG = {}
 
+ALLOWED_HOSTS = None
+
 if not IS_TESTING:
     try:
         from .local_settings import *
     except ImportError:
         pass
+
+if ALLOWED_HOSTS is None:
+    ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS += ['localhost', '127.0.0.1', 'testserver', '0.0.0.0']
 
 POLYGLOT_TEMP_DIR = os.path.join(POLYGLOT_DATA_DIRECTORY, 'downloads')
 
