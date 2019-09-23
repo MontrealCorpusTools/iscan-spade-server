@@ -214,6 +214,10 @@ CELERY_RESULT_BACKEND = 'django-db'
 CELERY_BROKER_URL = env("CELERY_BROKER_URL",
                         "amqp://guest:guest@localhost:5672//")
 
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = env(
+    "DJANGO_SECRET_KEY", 'BAD_SECRET_KEY_PLEASE_CHANGE_THIS_VALUE')
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',

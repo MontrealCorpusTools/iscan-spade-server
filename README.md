@@ -68,6 +68,7 @@ There is a template available there by default.
 
 In order to query the server from remote connections, you must change the `ALLOWED_HOSTS` parameter in the `iscan_server/settings/local_settings.py` to include the hostname of your server. 
 
+If you intend on accessing the server from the internet directly(i.e. not only on a closed network), you should also changed the `SECRET_KEY` in `base.py`.
 ## Use and workflow
 
 ### Starting and stopping the server
