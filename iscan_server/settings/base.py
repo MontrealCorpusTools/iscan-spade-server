@@ -51,10 +51,6 @@ DATABASES = {'default': {
         'HOST': 'db',
         'PORT': '5432'}}
 
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-#ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", '*')
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver', '0.0.0.0', '132.206.84.241', 'app', '192.168.1.107']
 
 INSTALLED_APPS = (
     'corsheaders',
@@ -155,7 +151,6 @@ STATICFILES_DIRS = [
     # os.path.join(ANGULAR_APP_DIR),
     #os.path.join(PROJECT_DIR, 'static'),
     ('node_modules', '/site/proj/node_modules'),
-    ('intonation', os.path.join(PROJECT_DIR, 'intonation/static/intonation/'))
 ]
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
@@ -178,7 +173,8 @@ CORS_ALLOW_CREDENTIALS = True
 #CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8080',
-    'http://127.0.0.1:8080'
+    'http://127.0.0.1:8080',
+    'http://app:8080'
 )
 
 TEMPLATES = [
@@ -217,6 +213,10 @@ EXCLUDE_FROM_MINIFYING = ('^files/', '^admin/', '^media/')
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_BROKER_URL = env("CELERY_BROKER_URL",
                         "amqp://guest:guest@localhost:5672//")
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = env(
+    "DJANGO_SECRET_KEY", 'BAD_SECRET_KEY_PLEASE_CHANGE_THIS_VALUE')
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -307,11 +307,18 @@ SPADE_SCRIPT_DIRECTORY = '/site/proj/SPADE'
 
 SPADE_CONFIG = {}
 
+ALLOWED_HOSTS = None
+
 if not IS_TESTING:
     try:
         from .local_settings import *
     except ImportError:
         pass
+
+if ALLOWED_HOSTS is None:
+    ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS += ['localhost', '127.0.0.1', 'testserver', '0.0.0.0']
 
 POLYGLOT_TEMP_DIR = os.path.join(POLYGLOT_DATA_DIRECTORY, 'downloads')
 

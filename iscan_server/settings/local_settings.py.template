@@ -1,6 +1,1 @@
-"""
-To be used for local development only
-"""
-from polyglot_server.settings.base import *
-SOURCE_DATA_DIRECTORY = os.path.join('/site/proj/polyglot_source', 'source')
-POLYGLOT_DATA_DIRECTORY = os.path.join('/site/proj/polyglot_data', 'data')
+ALLOWED_HOSTS = ['my_servers_ip'] 

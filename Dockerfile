@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     default-jdk \
     procps \
     wget \
+    nginx \
     sox
 
 # Get barren Praat and add it to the path
