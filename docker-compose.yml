@@ -47,9 +47,10 @@ services:
       - ../SPADE:/site/proj/SPADE
       - ../unisyn_spade:/site/proj/unisyn_spade
     expose:
-      - "8080"
+      - "80"
     ports:
-      - 8080:80
+      - 8080:8080
+      - 80:80
       - 7400:7800
       - 8400:8800
     environment:

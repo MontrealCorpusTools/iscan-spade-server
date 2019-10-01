@@ -12,7 +12,7 @@ if [ -z "$1" ]; then
 		${SITE_DIR}/env/bin/python ${SITE_DIR}/proj/manage.py runserver --verbosity 3 0.0.0.0:8080
 	else
 		source ${SITE_DIR}/env/bin/activate
-		gunicorn --chdir ${SITE_DIR}/proj -b 0.0.0.0:8080  iscan_server.wsgi:application --daemon
+		gunicorn --chdir ${SITE_DIR}/proj -b 0.0.0.0:8080  iscan_server.wsgi:application --daemon --error-logfile ${SITE_DIR}/proj/docker-utils/gunicorn-error.log --timeout 300
 		nginx -c ${SITE_DIR}/docker-utils/nginx/nginx.conf -g 'daemon off;'
 	fi
 else
