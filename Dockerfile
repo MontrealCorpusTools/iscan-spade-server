@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
     gunicorn
 
 # Get barren Praat and add it to the path
-RUN wget http://www.fon.hum.uva.nl/praat/praat6100_linux64barren.tar.gz && \
+RUN wget http://www.fon.hum.uva.nl/praat/praat6109_linux64barren.tar.gz && \
  gunzip praat6109_linux64barren.tar.gz && \
  tar xvf praat6109_linux64barren.tar && \
  mv praat_barren praat && \
