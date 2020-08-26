@@ -1,6 +1,9 @@
 # ISCAN SPADE server
 This is Django server framework for the ISCAN web application used by the SPADE project.
 
+## Documentation
+Documentation for ISCAN, as well as tutorials, can be found at [here](https://iscan.readthedocs.io/).
+
 ## Prerequisites
 ISCAN server uses [Docker](https://www.docker.com/what-docker). This containerization means that the only dependency the user must install is Docker itself.
 
